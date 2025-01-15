@@ -5,13 +5,13 @@
 ## Install
 
 ```sh
-npm install parse-json
+npm install @smushytaco/parse-json
 ```
 
 ## Usage
 
 ```js
-import parseJson, {JSONError} from 'parse-json';
+import { parseJson, JSONError } from '@smushytaco/parse-json';
 
 const json = '{\n\t"foo": true,\n}';
 

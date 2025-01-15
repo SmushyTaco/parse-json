@@ -1,4 +1,13 @@
+/config
+/coverage
+.DS_Store
 node_modules
+*.swp
+*.log
+.env
+dist
+*.ignore
+.idea
+.vscode
+.cache
 yarn.lock
-.nyc_output
-coverage

@@ -1,30 +1,52 @@
 {
-	"name": "parse-json",
-	"version": "8.1.0",
+	"name": "@smushytaco/parse-json",
+	"version": "1.0.1",
 	"description": "Parse JSON with more helpful errors",
 	"license": "MIT",
-	"repository": "sindresorhus/parse-json",
-	"funding": "https://github.com/sponsors/sindresorhus",
+	"private": false,
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.cts",
+	"exports": {
+		".": {
+			"import": {
+				"types": "./dist/index.d.mts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"types": "./dist/index.d.cts",
+				"default": "./dist/index.cjs"
+			}
+		}
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/SmushyTaco/parse-json.git"
+	},
+	"bugs": {
+		"url": "https://github.com/SmushyTaco/parse-json/issues"
+	},
 	"author": {
-		"name": "Sindre Sorhus",
-		"email": "sindresorhus@gmail.com",
-		"url": "https://sindresorhus.com"
+		"name": "SmushyTaco",
+		"email": "personal@nikanradan.com"
 	},
 	"type": "module",
-	"exports": {
-		"types": "./index.d.ts",
-		"default": "./index.js"
-	},
-	"sideEffects": false,
 	"engines": {
-		"node": ">=18"
+		"node": ">=18.12.0",
+		"npm": ">=8.19.2"
+	},
+	"publishConfig": {
+		"access": "public"
 	},
 	"scripts": {
-		"test": "xo && nyc ava && tsd"
+		"clean": "npx del-cli dist",
+		"build": "npm run clean && npx vite build",
+		"prepare": "npm run build"
 	},
 	"files": [
-		"index.js",
-		"index.d.ts"
+		"dist",
+		"LICENSE",
+		"README.md"
 	],
 	"keywords": [
 		"parse",
@@ -38,16 +60,24 @@
 		"string"
 	],
 	"dependencies": {
-		"@babel/code-frame": "^7.22.13",
-		"index-to-position": "^0.1.2",
-		"type-fest": "^4.7.1"
+		"@babel/code-frame": "^7.26.2",
+		"@smushytaco/index-to-position": "^1.0.0",
+		"type-fest": "^4.31.0"
 	},
 	"devDependencies": {
-		"ava": "^5.3.1",
-		"nyc": "^15.1.0",
-		"outdent": "^0.8.0",
-		"strip-ansi": "^7.1.0",
-		"tsd": "^0.29.0",
-		"xo": "^0.56.0"
+		"@types/babel__code-frame": "^7.0.6",
+		"@types/node": "^22.10.5",
+		"del-cli": "^6.0.0",
+		"@eslint/js": "^9.17.0",
+		"@smushytaco/versionchecker": "^1.0.4",
+		"@typescript-eslint/eslint-plugin": "^8.19.0",
+		"@typescript-eslint/parser": "^8.19.0",
+		"typescript-eslint": "^8.19.0",
+		"vite": "^6.0.7",
+		"vite-plugin-tsc-transpile": "^1.0.3",
+		"vite-plugin-dts": "^4.4.0",
+		"globals": "^15.14.0",
+		"prettier": "^3.4.2",
+		"typescript": "^5.7.2"
 	}
 }
